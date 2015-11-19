@@ -52,6 +52,14 @@ with open('data.txt', 'r') as f:
             if tmp:
                 cc_alias[key].append(tmp.group(1))
 
+sum_alias = 0
+sum_latest = 0
 for key in cc_alias:
     print "%s : Alias: %s Import: %s" % (key, cc_alias[key][1], cc_latest[key][1])
+    sum_alias += int(cc_alias[key][1])
+    sum_latest += int(cc_latest[key][1])
 
+print ""
+print "Total alias:  %10d " % (sum_alias)
+print "Total latest: %10d " % (sum_latest)
+print "Total diff: %10d " % (abs(sum_latest-sum_alias))
